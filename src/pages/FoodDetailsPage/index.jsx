@@ -1,18 +1,27 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { getMenuItemById } from "../../data/menuUtils";
+import { useNavigate } from "react-router-dom";
 
 const FoodDetailsPage = () => {
   const { id } = useParams();
   const item = getMenuItemById(id);
-  console.log(item);
+  const navigate = useNavigate();
+
+    const saveRecipe = () => {
+        const savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
+        if (!savedRecipes.includes(item.id)) {
+            savedRecipes.push(item.id);
+            localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
+        }
+    }
   return (
     <div>
       <div className="food-details-header-container">
-        <button>Back to Menu</button>
+        <button onClick={()=>navigate("/")}>Back to Menu</button>
         <div>
-          <button>Saved Recipes</button>
-          <button>Save Recipe</button>
+          <button onClick={()=>navigate("/saved-recipes")}>Saved Recipes</button>
+          <button onClick={saveRecipe}>Save Recipe</button>
         </div>
       </div>
       <div>
