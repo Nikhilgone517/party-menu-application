@@ -3,15 +3,33 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './index.css'
 
+
 const Login = () => {
     const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
-    const onSubmitForm = (e) => {
+    const onSubmitForm = async (e) => {
         e.preventDefault();
-        
+        const url="https://serverless-api-teal.vercel.app/api/auth/signin"
+        const options={
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({email, password})
+        }
+        const res= await fetch(url, options)
+        const data= await res.json()
+        if (data.success) {
+            localStorage.setItem("token", data.data.token)
+            localStorage.setItem("user", JSON.stringify(data.data.user))
+            navigate("/menu");
+        } else {
+            setErrMsg(data.message);
+        }
+
         
     }
 
