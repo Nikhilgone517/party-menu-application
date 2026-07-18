@@ -1,0 +1,43 @@
+.food-details-container{
+    background-color: #000000;
+}
+.saved-btn{
+    margin-right: auto;
+}
+.food-details-header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.food-details-text-container{
+    width: 50%;
+    text-align: left;
+    padding: 12px;
+}
+.fd-img{
+    width: 50%;
+    height: 350px;
+}
+.img-decript-block{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ingredients-list{
+    background-color: #1f1f1f;
+    height: auto;
+    width: 90%;
+    border-radius: 8px;
+    padding: 12px;
+}
+.ingredient-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid #333333;
+    background-color: #000000;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}

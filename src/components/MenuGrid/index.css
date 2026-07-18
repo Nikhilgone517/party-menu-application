@@ -1,0 +1,36 @@
+.menu-grid{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.each-menu-div{
+    width: 290px;
+    gap: 10px;
+    margin: 10px;
+    min-height: 400px;
+}
+.menu-image{
+    height: 200px;
+    width: 100%;
+    border-radius: 8px;
+    
+}
+.menu-grid a {
+  text-decoration: none;
+  color: inherit;
+}
+.recipe{
+    color: #ffffff;
+    font-size: 18px;
+    text-align: left;
+}
+.gold-orange-text{
+    color: #FF8C00;
+    font-size: 18px;
+    text-align: left;
+}
+.descript{
+    font-size: 16px;
+    text-align: left;
+}

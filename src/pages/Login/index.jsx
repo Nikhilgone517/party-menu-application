@@ -38,29 +38,32 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <div>
+      <div className="login-card">
         <div>
-          <span>dish icon</span>
-          <h1>Party Menu</h1>
-          <p>Sign in to explore our delicious menu</p>
-          {errMsg && <p>{errMsg}</p>}
+          <img src="https://www.svgrepo.com/show/396527/fork-and-knife-with-plate.svg"
+          className="dish-logo" />
+          <h1 className="bold-white-text">Party Menu</h1>
+          <p className="white-description">Sign in to explore our delicious menu</p>
+          {errMsg && <p className="error-message">{errMsg}</p>}
         </div>
         <form className="form" onSubmit={onSubmitForm}>
-          <label>Email</label>
+          <label >Email</label>
           <input
+          className="input-field"
             type="text"
             placeholder="admin@example.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <label>Password</label>
+          <label >Password</label>
           <input
+          className="input-field"
             type="password"
             placeholder="********"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit" className="btn">
+          <button className="gold-button" type="submit" >
             Sign In
           </button>
         </form>

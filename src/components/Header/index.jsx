@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import "./index.css";
 const Header = () => {
   const navigate = useNavigate();
   const onHandlelogout = () => {
@@ -10,14 +10,14 @@ const Header = () => {
   };
 
   return (
-    <div>
-      <div>
-        <h1>Party Menu</h1>
+    <div className="header-container">
+      <div className="header-content">
+        <h1 className="bold-white-text">Party Menu</h1>
         <p>Welcome, Admin User</p>
       </div>
-      <div>
-        <button onClick={() => navigate("/saved-recipes")}>Saved Recipe</button>
-        <button onClick={onHandlelogout}>Logout</button>
+      <div className="header-buttons">
+        <button className="header-button" onClick={() => navigate("/saved-recipes")}>Saved Recipe</button>
+        <button className="header-button" onClick={onHandlelogout}>Logout</button>
       </div>
     </div>
   );

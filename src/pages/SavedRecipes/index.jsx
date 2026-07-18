@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import menuData from "../../data/menuData";
-
+import './index.css'
 const SavedRecipes = () => {
   const [savedRecipes, setSavedRecipes] = useState([]);
   const navigate = useNavigate();
@@ -23,33 +23,38 @@ const SavedRecipes = () => {
 
 
   return (
-    <div>
-      <div>
+    <div className="saved-recipes-container">
+      <div className="saved-recipes-header">
         <div>
-          <h1>Saved Recipes</h1>
-          <p>{savedRecipes.length} recipes saved</p>
+          <h1 className="saved-recipes-title">Saved Recipes</h1>
+          <p className="saved-recipes-count">{savedRecipes.length} recipes saved</p>
         </div>
-        <button onClick={() => navigate("/")}>Back to Menu</button>
+        <button className="back-btn" onClick={() => navigate("/")}>
+          Back to Menu
+        </button>
       </div>
-      <h1>Saved Recipes</h1>
-      <ul>
+      <ul className="saved-recipes-list">
         {savedRecipes.length === 0 && (
-          <div>
+          <div className="no-saved-recipes">
             <p>No saved recipes yet.</p>
-            <h1 onClick={()=>navigate('/')}>Browse the menu</h1>
+            <h1 className="browse-link" onClick={()=>navigate('/')}>
+              Browse the menu
+            </h1>
           </div>
         )}
         {savedRecipes.map((recipe) => (
-          <li key={recipe.id}>
+          <li key={recipe.id} className="recipe-card">
             <div>
-              <img />
+              <img src={recipe.image} alt={recipe.name} className="recipe-image" />
             </div>
-            <div>
-              <h1>{recipe.category}</h1>
-              <h1>{recipe.name}</h1>
-              <p>{recipe.description}</p>
-              <p>For {recipe.servings} people</p>
-              <button onClick={() => removeRecipe(recipe.id)}>Remove</button>
+            <div className="recipe-content">
+              <h1 className="recipe-category">{recipe.category}</h1>
+              <h1 className="recipe-name">{recipe.name}</h1>
+              <p className="recipe-description">{recipe.description}</p>
+              <p className="recipe-serving">For {recipe.servings} people</p>
+              <button className="remove-btn" onClick={() => removeRecipe(recipe.id)}>
+                Remove
+              </button>
             </div>
           </li>
         ))}
