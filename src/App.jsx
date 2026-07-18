@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Login from './pages/Login'
 import MenuPage from './pages/MenuPage'
+import FoodDetailsPage from './pages/FoodDetailsPage'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,8 +11,9 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/menu" element={<MenuPage />} />
+      <Route path="/signin" element={<Login />} />
+      <Route path="/" element={<MenuPage />} />
+      <Route path="/menu/:id" element={<FoodDetailsPage />} />
     </Routes>
     </BrowserRouter>
   )
