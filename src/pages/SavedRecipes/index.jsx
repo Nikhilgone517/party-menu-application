@@ -21,7 +21,6 @@ const SavedRecipes = () => {
     );
   };
 
-  console.log(savedRecipes);
 
   return (
     <div>
